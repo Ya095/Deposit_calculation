@@ -21,10 +21,10 @@ def validate_input(data: DepositRequest):
         # Проверка для periods, amount и rate
         if not 1 <= data.periods <= 60:
             raise ValueError("Введите количество месяцев от 1 до 60")
-        if not 10000 <= data.amount <= 10_000_000:
-            raise ValueError("Введите сумму вклада от 10 т.р. до 10 млн.")
-        if not 1 <= data.rate <= 15:
-            raise ValueError("Введите процентную ставку от 1 до 15")
+        if not 10000 <= data.amount <= 3_000_000:
+            raise ValueError("Введите сумму вклада от 10 т.р. до 3 млн.")
+        if not 1 <= data.rate <= 8:
+            raise ValueError("Введите процентную ставку от 1 до 8")
 
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
