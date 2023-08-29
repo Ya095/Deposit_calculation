@@ -13,7 +13,7 @@ def test_deposit_culc_wrong_input_data_type():
         "rate": 'data'
     }
 
-    expected_response = {"error": "Ошибка валидации данных. Проверьте, что вводите данные в верном формате"}
+    expected_response = {"error": "Введены не все данные, либо введены в неверном формате"}
 
     response = client.post("/calculations/calc_deposit", json=request_data)
 
@@ -73,7 +73,7 @@ def test_deposit_culc_invalid_input_date():
         "rate": 7
     }
 
-    expected_response = {"error": "Введите дату в формате 'дд.мм.гггг'"}
+    expected_response = {"error": f"time data '{request_data['date']}' does not match format '%d.%m.%Y'"}
 
     response = client.post("/calculations/calc_deposit", json=request_data)
 

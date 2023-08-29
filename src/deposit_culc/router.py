@@ -12,13 +12,8 @@ router = APIRouter(
 
 def validate_input(data: DepositRequest):
     try:
-        try:
-            # Проверка формата даты
-            datetime.strptime(data.date, "%d.%m.%Y")
-        except ValueError:
-            raise ValueError("Введите дату в формате 'дд.мм.гггг'")
+        datetime.strptime(data.date, "%d.%m.%Y")
 
-        # Проверка для periods, amount и rate
         if not 1 <= data.periods <= 60:
             raise ValueError("Введите количество месяцев от 1 до 60")
         if not 10000 <= data.amount <= 3_000_000:

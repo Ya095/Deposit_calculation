@@ -14,7 +14,7 @@ app = FastAPI(
 async def validation_exception_handler(request, exc):
     return JSONResponse(
         status_code=400,
-        content={"error": "Ошибка валидации данных. Проверьте, что вводите данные в верном формате"},
+        content={"error": "Введены не все данные, либо введены в неверном формате"},
     )
 
 
