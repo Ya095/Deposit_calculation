@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from datetime import datetime
 from src.deposit_culc.schemas import DepositRequest, DepositResponse
+from consts import *
 import calendar
 
 
@@ -14,11 +15,11 @@ def validate_input(data: DepositRequest):
     try:
         datetime.strptime(data.date, "%d.%m.%Y")
 
-        if not 1 <= data.periods <= 60:
+        if not min_months_count <= data.periods <= max_months_count:
             raise ValueError("Введите количество месяцев от 1 до 60")
-        if not 10000 <= data.amount <= 3_000_000:
+        if not min_deposit_count <= data.amount <= max_deposit_count:
             raise ValueError("Введите сумму вклада от 10 т.р. до 3 млн.")
-        if not 1 <= data.rate <= 8:
+        if not min_deposit_sum <= data.rate <= max_deposit_sum:
             raise ValueError("Введите процентную ставку от 1 до 8")
 
     except ValueError as e:
