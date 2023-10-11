@@ -1,4 +1,3 @@
-#
 from fastapi import FastAPI, HTTPException
 from src.deposit_culc.router import router as router_deposit_calc
 from fastapi.exceptions import RequestValidationError
