@@ -1,9 +1,7 @@
-# commit_time = 2023-10-11 19:41:26.629165
 from fastapi import FastAPI, HTTPException
 from src.deposit_culc.router import router as router_deposit_calc
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
-
 
 
 app = FastAPI(
