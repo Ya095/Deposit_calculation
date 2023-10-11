@@ -5,7 +5,6 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
 
-
 app = FastAPI(
     title='Deposit calculation',
     description='Сервис для расчета депозита.'
