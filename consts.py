@@ -1,5 +1,5 @@
 # Константы
-# -----------
+# ----------
 
 min_months_count = 1
 max_months_count = 60
