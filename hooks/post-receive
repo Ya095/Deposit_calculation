@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd "$GIT_WORK_TREE"
 
 output_file="changes.txt"
 
